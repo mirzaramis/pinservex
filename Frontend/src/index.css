@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow:wght@600;700;800&display=swap');
+
+:root {
+  /* ── CRIMSON ACCENT (Pinservex brand palette) ── */
+  --accent:        #991135;
+  --accent-light:  #bd1a4a;
+  --accent-dark:   #4d0a1c;
+  --accent-mid:    #7a1029;
+  --accent-glow:   rgba(153, 17, 53, 0.30);
+  --accent-subtle: rgba(153, 17, 53, 0.12);
+  --accent-border: rgba(153, 17, 53, 0.50);
+
+  /* gradient helpers */
+  --accent-gradient: linear-gradient(135deg, #4d0a1c 0%, #991135 100%);
+  --accent-gradient-h: linear-gradient(90deg, #4d0a1c 0%, #991135 50%, #4d0a1c 100%);
+
+  /* legacy aliases */
+  --red:        var(--accent);
+  --red-light:  var(--accent-light);
+  --red-dark:   var(--accent-dark);
+  --red-glow:   var(--accent-glow);
+  --red-subtle: var(--accent-subtle);
+
+  /* ── BLACKS / SURFACES ── */
+  --bg:          #000000;
+  --bg-card:     #0d0d0d;
+  --bg-surface:  #0d0d0d;
+  --bg-hover:    #161616;
+  --border:      #1a1a1a;
+  --border-mid:  #252525;
+  --border-light:#333333;
+
+  /* ── TEXT ── */
+  --text:        #ffffff;
+  --text-muted:  #a0a0a0;
+  --text-dim:    #666666;
+  --text-dimmer: #444444;
+
+  /* ── SHADOWS ── */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.5);
+  --shadow-md:  0 8px 24px rgba(0,0,0,0.6);
+  --shadow-lg:  0 16px 48px rgba(0,0,0,0.7);
+  --shadow-accent: 0 8px 28px rgba(153, 17, 53, 0.45);
+  --shadow-red: var(--shadow-accent);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: 'Inter', sans-serif; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.page-loader {
+  min-height: 40vh;
+}
+
+/* ── SITE LOGO ── */
+.site-logo-img {
+  width: auto;
+  display: block;
+}
+.site-logo-img--nav   { height: 72px; }
+.site-logo-img--footer { height: 52px; }
+.site-logo-img--quote  { height: 40px; margin-bottom: 20px; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Shared form feedback messages */
+.form-error,
+.newsletter-error,
+.qf-error,
+.bulk-order-error {
+  color: #ff6b81;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.qf-success,
+.bulk-order-success {
+  color: #63d68b;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* Cloudflare Turnstile widget spacing */
+.cf-turnstile-widget {
+  margin: 4px 0 2px;
+}
+
+/* Honeypot field — visually hidden, kept in the accessibility tree off-screen
+   so real users never focus it but bots still see and fill it. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.55);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 11px 26px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.btn-ghost:hover {
+  background: var(--accent-subtle);
+  border-color: var(--accent-border);
+}
+
+/* ── LABELS ── */
+.section-tag {
+  display: inline-block;
+  background: var(--accent-subtle);
+  color: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: all 0.25s;
+}
+.card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 1px var(--accent-subtle), var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dark); }

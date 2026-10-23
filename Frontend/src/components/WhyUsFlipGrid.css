@@ -1,0 +1,200 @@
+.why-flip-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.why-flip-slot {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  outline: none;
+}
+
+.why-flip-scene {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  perspective: 1400px;
+  perspective-origin: 50% 42%;
+}
+
+.why-flip-stack {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  transform-style: preserve-3d;
+}
+
+.why-flip-stack--resetting .why-flip-card,
+.why-flip-stack--resetting .why-flip-shadow {
+  transition: none !important;
+}
+
+.why-flip-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 250px;
+  padding: 28px;
+  text-align: center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  background: linear-gradient(165deg, #141414 0%, #0a0a0a 100%);
+  border: 1px solid var(--border-mid);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, box-shadow, opacity;
+}
+
+.why-flip-card--back {
+  z-index: 1;
+  transform: translate3d(0, 10px, -48px) rotateX(8deg) scale(0.96);
+  opacity: 0.72;
+  filter: brightness(0.82);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.42),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+  transform-origin: center bottom;
+}
+
+.why-flip-card--front {
+  z-index: 2;
+  transform: translate3d(0, 0, 24px) rotateX(0deg) scale(1);
+  opacity: 1;
+  filter: brightness(1);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.55),
+    0 12px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 32px rgba(153, 17, 53, 0.18);
+  transform-origin: center bottom;
+}
+
+.why-flip-slot--flipping .why-flip-card--front {
+  z-index: 1;
+  transform: translate3d(0, 28px, -72px) rotateX(-78deg) scale(0.92);
+  opacity: 0.35;
+  filter: brightness(0.65);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.28),
+    0 2px 6px rgba(0, 0, 0, 0.22);
+}
+
+.why-flip-slot--flipping .why-flip-card--back {
+  z-index: 3;
+  transform: translate3d(0, 0, 28px) rotateX(0deg) scale(1);
+  opacity: 1;
+  filter: brightness(1);
+  box-shadow:
+    0 32px 68px rgba(0, 0, 0, 0.58),
+    0 14px 28px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 10px 36px rgba(153, 17, 53, 0.22);
+}
+
+.why-flip-slot--paused .why-flip-card--front {
+  border-color: var(--accent-border);
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.58),
+    0 14px 28px rgba(0, 0, 0, 0.38),
+    0 0 28px var(--accent-glow);
+}
+
+.why-flip-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 72%;
+  height: 28px;
+  transform: translateX(-50%) rotateX(78deg);
+  transform-origin: center center;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 72%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.why-flip-slot--flipping .why-flip-shadow {
+  opacity: 0.45;
+  transform: translateX(-50%) rotateX(78deg) scale(0.88);
+}
+
+.why-flip-card .why-icon {
+  font-size: 40px;
+}
+
+.why-flip-card h3 {
+  font-size: 22px;
+}
+
+.why-flip-card p {
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+.why-flip-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.why-flip-dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--border-light);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.why-flip-dot:hover:not(.active):not(:disabled) {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+
+.why-flip-dot:disabled {
+  cursor: default;
+}
+
+.why-flip-dot.active {
+  background: var(--accent-light);
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-flip-card,
+  .why-flip-shadow {
+    transition: none;
+  }
+
+  .why-flip-card--back {
+    transform: translate3d(0, 8px, -20px) scale(0.98);
+    opacity: 0.85;
+  }
+
+  .why-flip-slot--flipping .why-flip-card--front {
+    opacity: 0;
+  }
+
+  .why-flip-slot--flipping .why-flip-card--back {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}

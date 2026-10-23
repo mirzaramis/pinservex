@@ -1,0 +1,119 @@
+.top-picks-carousel {
+  position: relative;
+}
+
+.top-picks-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.top-picks-carousel-track {
+  display: flex;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.top-picks-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  gap: 28px;
+  padding: 2px 0;
+}
+
+.top-picks-carousel-slide > .top-pick-banner-tile {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.top-picks-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+  backdrop-filter: blur(6px);
+}
+
+.top-picks-carousel-arrow:hover {
+  background: rgba(153, 17, 53, 0.55);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.top-picks-carousel-arrow--prev {
+  left: -12px;
+}
+
+.top-picks-carousel-arrow--next {
+  right: -12px;
+}
+
+.top-picks-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.top-picks-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.top-picks-carousel-dot.is-active {
+  width: 28px;
+  background: var(--accent);
+}
+
+.top-picks-carousel-dot:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.top-picks-carousel-dot.is-active:hover {
+  background: var(--accent-light);
+}
+
+@media (max-width: 768px) {
+  .top-picks-carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .top-picks-carousel-arrow--prev {
+    left: 4px;
+  }
+
+  .top-picks-carousel-arrow--next {
+    right: 4px;
+  }
+
+  .top-picks-carousel-slide {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-picks-carousel-slide {
+    gap: 0;
+  }
+}

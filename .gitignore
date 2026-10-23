@@ -1,0 +1,40 @@
+# Secrets / local config
+.env
+.env.*
+!.env.example
+appsettings.Development.json
+appsettings.Production.json
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json.example
+*.PublishSettings
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.log
+
+# .NET
+bin/
+obj/
+.vs/
+*.user
+publish/
+publish-linux/
+*.pdb
+
+# Build / deploy artifacts
+*-deploy*.zip
+*.zip
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Built SPA, copied from Frontend/dist at publish time (DEPLOYMENT.md step 2)
+HardwareStore/wwwroot/

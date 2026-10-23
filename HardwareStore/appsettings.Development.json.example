@@ -1,0 +1,24 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=HardwareStore;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"
+  },
+  "Email": {
+    "SmtpHost": "smtp.example.com",
+    "SmtpPort": 465,
+    "UseStartTls": false,
+    "Username": "info@example.com",
+    "Password": "CHANGE_ME",
+    "FromAddress": "info@example.com",
+    "FromName": "Pinservex Website",
+    "ToAddress": "info@example.com"
+  },
+  "Turnstile": {
+    "SecretKey": "CHANGE_ME"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}

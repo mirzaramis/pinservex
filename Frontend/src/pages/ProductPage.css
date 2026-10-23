@@ -1,0 +1,256 @@
+.product-detail-page {
+  padding-bottom: 80px;
+}
+
+.product-detail-hero {
+  background: linear-gradient(180deg, #070707 0%, #0f0f0f 100%);
+  padding: 52px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.product-detail-hero-inner {
+  display: grid;
+  gap: 16px;
+}
+
+.product-detail-hero .breadcrumb {
+  color: var(--text-muted);
+}
+
+.page-title {
+  font-size: clamp(32px, 5vw, 52px);
+  margin: 10px 0 10px;
+}
+
+.page-subtitle {
+  max-width: 680px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.product-detail-body {
+  padding: 36px 0;
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(320px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.product-detail-card,
+.bulk-order-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-border);
+  box-shadow: 0 0 0 1px var(--accent-subtle), 0 24px 60px -24px var(--accent-glow);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+.bulk-order-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light), transparent);
+}
+
+.product-detail-card {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.product-detail-image-wrap {
+  min-height: 420px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.product-detail-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.product-detail-placeholder {
+  width: 100%;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  font-size: 72px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.product-detail-info {
+  padding: 32px;
+}
+
+.product-detail-category {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.product-detail-title {
+  font-size: clamp(28px, 4vw, 44px);
+  margin: 0 0 18px;
+}
+
+.product-detail-sku {
+  color: var(--text);
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.product-detail-copy {
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 680px;
+}
+
+.product-detail-aside {
+  display: grid;
+  gap: 18px;
+}
+
+.bulk-order-panel {
+  padding: 28px;
+}
+
+.bulk-order-header {
+  margin-bottom: 22px;
+}
+
+.bulk-order-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 10px;
+}
+
+.bulk-order-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.bulk-order-form {
+  display: grid;
+  gap: 18px;
+}
+
+.bulk-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-field {
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.form-field span {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-dimmer);
+}
+
+.form-field input[readonly] {
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.bulk-order-submit,
+.bulk-order-back {
+  width: 100%;
+}
+
+.bulk-order-submit {
+  padding: 14px 18px;
+}
+
+.bulk-order-back {
+  padding: 13px 18px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.bulk-order-back:hover {
+  border-color: var(--accent);
+}
+
+.product-detail-status {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.product-detail-error {
+  color: var(--red);
+}
+
+@media (max-width: 960px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .product-detail-hero {
+    padding: 40px 0 30px;
+  }
+
+  .product-detail-info {
+    padding: 24px;
+  }
+
+  .bulk-order-panel {
+    padding: 22px;
+  }
+
+  .bulk-form-row {
+    grid-template-columns: 1fr;
+  }
+}
