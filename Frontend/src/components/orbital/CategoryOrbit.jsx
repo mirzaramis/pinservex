@@ -303,6 +303,10 @@ function OrbCard({ cat, x, y, scale, opacity, zIndex, active, onEnter, onLeave }
           className="orb-icon"
           src={iconUrl(cat.icon)}
           alt={cat.label}
+          width={144}
+          height={176}
+          loading="lazy"
+          decoding="async"
           draggable={false}
           animate={active ? { rotate: [0, -6, 6, -3, 0] } : { rotate: 0 }}
           transition={{ duration: 0.45 }}

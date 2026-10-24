@@ -11,9 +11,9 @@ export default defineConfig({
           if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/') || id.includes('node_modules/react-router-dom')) {
             return 'vendor-react'
           }
-          if (id.includes('node_modules/framer-motion')) {
-            return 'vendor-motion'
-          }
+          // framer-motion is deliberately NOT pinned to its own chunk: only the
+          // lazy-loaded home-page sections use it, so letting Vite attach it to
+          // those section chunks keeps it off the product/contact/FAQ pages.
         },
       },
     },

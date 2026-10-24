@@ -64,11 +64,29 @@ app.UseCors("Frontend");
 // are handled by controllers; any other path falls back to index.html so
 // client-side routing works.
 app.UseDefaultFiles();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = ctx =>
+    {
+        var path = ctx.Context.Request.Path.Value ?? string.Empty;
+        // Vite content-hashes everything under /assets, so it can be cached forever.
+        // Icons and other public files change rarely; a day is a safe default.
+        // index.html must always be revalidated so a new deploy is picked up.
+        var cache = path.StartsWith("/assets/", StringComparison.OrdinalIgnoreCase)
+            ? "public, max-age=31536000, immutable"
+            : path.EndsWith(".html", StringComparison.OrdinalIgnoreCase)
+                ? "no-cache"
+                : "public, max-age=86400";
+        ctx.Context.Response.Headers.CacheControl = cache;
+    }
+});
 
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapFallbackToFile("index.html");
+app.MapFallbackToFile("index.html", new StaticFileOptions
+{
+    OnPrepareResponse = ctx => ctx.Context.Response.Headers.CacheControl = "no-cache"
+});
 
 app.Run();
