@@ -9,6 +9,12 @@
   overflow: hidden;
   width: 100%;
   position: relative;
+  /* Reserve the final cropped height before the image arrives. The source is
+     1920x640 (3:1); 13% is cropped off the top (see .hero-banner-img), so the
+     visible box is 1920 : 640*0.87. Without this the section first lays out
+     at the full 3:1, then the negative margin pulls it up once the image has
+     a width, shifting everything below it (CLS 0.42). */
+  aspect-ratio: 1920 / 556.8;
 }
 
 .hero-banner-img {
