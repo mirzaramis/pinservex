@@ -93,7 +93,7 @@
   border-right: 1px solid var(--border);
 }
 .stat-item:last-child { border-right: none; }
-.stat-val { font-family: 'Barlow', sans-serif; font-size: 30px; font-weight: 800; color: #991135; cursor: default; }
+.stat-val { font-family: 'Barlow', sans-serif; font-size: 30px; font-weight: 800; color: #991135; cursor: default; font-variant-numeric: tabular-nums; display: inline-block; min-width: 5.5ch; text-align: center; }
 .stat-lbl { font-size: 13px; color: var(--text-muted); font-weight: 500; }
 
 /* ── CATEGORIES ── */
