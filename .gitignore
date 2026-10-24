@@ -38,3 +38,6 @@ Thumbs.db
 
 # Built SPA, copied from Frontend/dist at publish time (DEPLOYMENT.md step 2)
 HardwareStore/wwwroot/
+
+# Editor / agent config
+.claude/

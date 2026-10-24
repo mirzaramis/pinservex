@@ -1,6 +1,8 @@
 # Pinservex
 
-An IT hardware storefront made up of three parts in this repo:
+Live: **https://pinservex.com**
+
+An IT hardware storefront (~15k products, 163 brands, 16 categories) made up of three parts in this repo:
 
 ```
 pinservex/
@@ -9,7 +11,15 @@ pinservex/
 └── Frontend/     # React + Vite storefront (frontend)
 ```
 
-The frontend talks to the backend over `/api`, and the backend talks to SQL Server exclusively through stored procedures. There is no ORM and no migration tool — the database is provisioned by running the two scripts in `Database/`.
+The frontend talks to the backend over `/api`, and the backend talks to SQL Server exclusively through stored procedures. There is no ORM and no migration tool — the database is provisioned by running the scripts in `Database/`.
+
+In production the two halves ship as **one unit**: the React build is copied into the API's `wwwroot/` and a single Azure App Service serves both the SPA and `/api/*`, backed by Azure SQL. Secrets (DB connection string, SMTP password, Turnstile secret) live only in App Service configuration — never in the repo. See [`DEPLOYMENT.md`](DEPLOYMENT.md) for the full Azure walkthrough.
+
+**Stack:** React 19 · Vite · Framer Motion · ASP.NET Core (.NET 10) · Microsoft.Data.SqlClient · MailKit · Cloudflare Turnstile · Azure App Service · Azure SQL
+
+**About this repository.** Built by Mirza Ramis Baig. The project was first developed under a previous GitHub account that is no longer accessible; this repository carries the current version going forward.
+
+---
 
 ## Prerequisites
 
