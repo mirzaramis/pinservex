@@ -26,6 +26,7 @@ namespace HardwareStore.Controllers
         }
 
         [HttpGet("brands-map")]
+        [ResponseCache(Duration = 600, Location = ResponseCacheLocation.Any)]
         public async Task<ActionResult<IEnumerable<CategoryBrandMapItemResponse>>> GetBrandsMap()
         {
             var items = await _categoryService.GetBrandsMapAsync();
