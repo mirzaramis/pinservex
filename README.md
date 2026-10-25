@@ -17,7 +17,7 @@ In production the two halves ship as **one unit**: the React build is copied int
 
 **Stack:** React 19 · Vite · Framer Motion · ASP.NET Core (.NET 10) · Microsoft.Data.SqlClient · MailKit · Cloudflare Turnstile · Azure App Service · Azure SQL
 
-**About this repository.** Built by Mirza Ramis Baig. The project was first developed under a previous GitHub account that is no longer accessible; this repository carries the current version going forward.
+**Author:** Mirza Ramis Baig
 
 ---
 
